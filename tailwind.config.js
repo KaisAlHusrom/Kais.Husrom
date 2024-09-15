@@ -13,7 +13,15 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        '3xs': '175px',
+        '2xs': '275px',
+        'xs': '375px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1400px',
+        '3xl': '1536px',
       },
     },
     extend: {
@@ -31,6 +39,8 @@ module.exports = {
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
+          dark: "hsl(var(--secondary-dark))",
+          light: "hsl(var(--secondary-light))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -84,10 +94,14 @@ module.exports = {
           '0%, 100%': { borderColor: 'transparent' },
           '50%': { borderColor: 'black' }, // Adjust the color of the cursor as needed
         },
-        "first-appearance": {
+        fadeIn: {
           "0%": { opacity: 0 },
           "50%": { opacity: 0.5 },
           "100%": { opacity: 1 },
+        },
+        'accorion-right': {
+          "0%": { transform: 'translateX(-100%)' },
+          "100%": { transform: 'translateX(0)' },
         }
       },
       animation: {
@@ -95,7 +109,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         typewriter: 'typewriter 2s steps(30) 1s forwards',
         blink: 'blink 0.75s step-end infinite',
-        'first-appearance': "first-appearance 1s ease-in"
+        fadeIn: "fadeIn 1s ease-in",
+        'accorion-right': 'accorion-right 4s ease-out'
       },
       fontFamily: {
         pthin: ["Poppins-Thin", "sans-serif"],
@@ -128,7 +143,10 @@ module.exports = {
         '7xl': '4.5rem',     // 72px
         '8xl': '5rem',       // 80px
         '9xl': '6rem',       // 96px
-      }
+      },
+      // backgroundImage: {
+      //   'gradient-to-r': 'linear-gradient(90deg, #ff7e5f, #feb47b)',
+      // },
     },
   },
   plugins: [

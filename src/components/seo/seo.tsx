@@ -19,8 +19,10 @@ const Seo = (props: SeoProps) => {
         type,
         author,
         keywords,
-        canonical
+        canonical,
     } = props;
+
+
 
     return (
         <Helmet>

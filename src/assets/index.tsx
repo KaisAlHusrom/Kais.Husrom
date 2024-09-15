@@ -5,6 +5,7 @@ import lightLogo from "@/assets/logo/light logo.svg"
 import heroImage from '@/assets/images/Untitled design.png'
 import kaisImage from '@/assets/images/kais image.png'
 import heroBackground from '@/assets/images/herobackground.png'
+import services_background from '@/assets/images/services_background.png'
 
 export const Images = {
     logo,
@@ -12,7 +13,8 @@ export const Images = {
     lightLogo,
     heroImage,
     kaisImage,
-    heroBackground
+    heroBackground,
+    services_background
 }
 
 

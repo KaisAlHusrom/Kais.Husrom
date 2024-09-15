@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom"
 
 
 import { LandPageNavBar } from "./components"
-import { Box, Seo } from "@/components"
+import {  Seo } from "@/components"
 
 
 const LandPageRoot = () => {
@@ -22,9 +22,8 @@ const LandPageRoot = () => {
 
 
             <LandPageNavBar />
-            <Box variant="container">
-                <Outlet />
-            </Box>
+            <Outlet />
+            
         </>
     )
 }

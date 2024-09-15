@@ -3,7 +3,7 @@ import {
     createRoutesFromElements,
     Route,
     RouterProvider
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 //pages
 import { ErrorPage, LandPage, LandPageRoot, NotFoundPage, Root } from '@/pages';

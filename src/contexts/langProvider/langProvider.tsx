@@ -1,4 +1,4 @@
-import Lang from "@/types/lang";
+import Lang, {Dir} from "@/types/lang";
 import React, { createContext, useEffect, useState } from "react";
 
 
@@ -8,14 +8,17 @@ type LangProviderProps = {
     defaultLang?: Lang,
 }
 
+
 type LangProvideState = {
     lang: Lang,
-    setLang: (lang: Lang) => void
+    setLang: (lang: Lang) => void,
+    direction: Dir,
 }
 
 const initialState : LangProvideState = {
     lang: 'en',
     setLang: () => null,
+    direction: 'ltr',
 }
 
 export const LangProviderContext = createContext<LangProvideState>(initialState);
@@ -38,12 +41,13 @@ const LangProvider = ({children, defaultLang = 'en'} : LangProviderProps) => {
 
     }, [direction])
 
-    const value = {
+    const value : LangProvideState = {
         lang,
         setLang: (lang: Lang) => {
             localStorage.setItem(storageKey, lang);
             setLang(lang);
-        }
+        },
+        direction
     }
 
     return (
