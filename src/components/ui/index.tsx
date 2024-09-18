@@ -37,6 +37,8 @@ import {
 } from "@/components/ui/carousel"
   
 
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+
 export {
     Button,
     Drawer,
@@ -64,5 +66,6 @@ export {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-    CarouselPagination
+    CarouselPagination,
+    Avatar, AvatarImage, AvatarFallback 
 }

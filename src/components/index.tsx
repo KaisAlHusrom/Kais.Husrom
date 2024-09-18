@@ -7,6 +7,7 @@ import DrawerButton from "./drawerButton/drawerButton"
 import SectionTitle from "./sectionTitle/sectionTitle"
 import GradientIcon from "./gradientIcon/gradientIcon"
 import Tag from "./tag/tag";
+import Rate from "./rate/rate";
 
 export {
     ModeToggle,
@@ -18,4 +19,5 @@ export {
     SectionTitle,
     GradientIcon,
     Tag,
+    Rate,
 }

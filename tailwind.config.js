@@ -86,31 +86,54 @@ module.exports = {
           to: { height: "0" },
         },
         typewriter: {
-          '0%': { width: '0%', borderRight: "1px solid"},
-          '60%': { width: '100%'},
-          '100%': {borderRight: "0px"}
+          '0%, 10%': { maxWidth: '0%', borderRight: '2px solid currentColor', whiteSpace: 'nowrap' },
+          '30%, 60%': { maxWidth: '100%', borderRight: '2px solid currentColor' },
+          '70%, 80%': { maxWidth: '100%', borderRight: '2px solid transparent' },
+          '90%, 100%': { maxWidth: '100%', borderRight: '2px solid transparent', whiteSpace: 'normal' },
         },
         blink: {
           '0%, 100%': { borderColor: 'transparent' },
-          '50%': { borderColor: 'black' }, // Adjust the color of the cursor as needed
+          '50%': { borderColor:  'hsl(var(--primary))'}, // Adjust the color of the cursor as needed
         },
         fadeIn: {
           "0%": { opacity: 0 },
           "50%": { opacity: 0.5 },
           "100%": { opacity: 1 },
         },
+        fadeOut: {
+          "0%": { opacity: 1 },
+          "50%": { opacity: 0.5 },
+          "100%": { opacity: 0 },
+        },
         'accorion-right': {
           "0%": { transform: 'translateX(-100%)' },
           "100%": { transform: 'translateX(0)' },
+        },
+        projectImageAnimation: {
+          "0%": { transform: 'translateY(-30px)' },
+          "25%": { transform: 'translateY(-15px)' },
+          "50%": { transform: 'translateY(0px)' },
+          "75%": { transform: 'translateY(-15px)' },
+          "100%": { transform: 'translateX(-30)' },
+        },
+        testimonial: {
+          "0%": { rotate: '5deg' },
+          "25%": { rotate: '2deg' },
+          "50%": { rotate: '0' },
+          "75%": { rotate: '-2deg' },
+          "100%": { rotate: '-5deg' },
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        typewriter: 'typewriter 2s steps(30) 1s forwards',
+        typewriter: 'typewriter 4s steps(30) 1s forwards',
         blink: 'blink 0.75s step-end infinite',
         fadeIn: "fadeIn 1s ease-in",
-        'accorion-right': 'accorion-right 4s ease-out'
+        fadeOut: "fadeOut 1s ease-out",
+        'accorion-right': 'accorion-right 4s ease-out',
+        projectImageAnimation: 'projectImageAnimation 6s ease-in-out infinite',
+        testimonial: 'testimonial 4s ease-in-out infinite',
       },
       fontFamily: {
         pthin: ["Poppins-Thin", "sans-serif"],

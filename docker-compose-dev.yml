@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  kais_al_husrom_web_page:
+    build: 
+      context: .
+      target: development
+    volumes:
+      - .:/app/client
+      - /app/client/node_modules
+    ports:
+      - "5173:5173"

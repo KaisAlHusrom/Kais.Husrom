@@ -1,7 +1,7 @@
 import React from 'react'
 import { ButtonProps } from '../ui/button/button'
 import { Button, Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '../ui'
-import { LucideIcon, Plus } from 'lucide-react'
+import { LucideIcon } from 'lucide-react'
 
 interface DrawerButtonProps extends ButtonProps {
     children: React.ReactNode,

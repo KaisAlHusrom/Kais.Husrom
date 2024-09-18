@@ -1,5 +1,4 @@
-import { Hero, Projects, Statics } from "../components"
-import Services from "../components/services/services"
+import { Hero, Projects, Statics, Services, Testimonials } from "../components"
 
 const LandPage = () => {
     return (
@@ -8,6 +7,7 @@ const LandPage = () => {
             <Statics />
             <Services />
             <Projects />
+            <Testimonials />
         </>
     )
 }

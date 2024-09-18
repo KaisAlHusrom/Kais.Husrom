@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  kais_al_husrom_web_page:
+    container_name: kais_al_husrom_web_page_container
+    ports:
+      - "80:80"

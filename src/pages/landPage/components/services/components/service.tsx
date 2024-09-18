@@ -2,7 +2,7 @@ import { Box, Text } from "@/components";
 import {  services } from "../constants";
 import IService from "../types/Iservice";
 import { Dispatch, SetStateAction } from "react";
-import { useMediaQuery, useResponsiveRadius, useTailwindBreakpoint } from "@/hooks";
+import { useResponsiveRadius } from "@/hooks";
 
 interface ServicePropsType {
     service: IService,

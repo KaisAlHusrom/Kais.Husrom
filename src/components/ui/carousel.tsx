@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui"
+import { useLangContext } from "@/hooks"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -58,9 +59,12 @@ const Carousel = React.forwardRef<
     },
     ref
   ) => {
+    const {direction} = useLangContext();
+
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
+        direction,
         axis: orientation === "horizontal" ? "x" : "y",
       },
       plugins
@@ -124,6 +128,7 @@ const Carousel = React.forwardRef<
       }
     }, [api, onSelect])
 
+
     return (
       <CarouselContext.Provider
         value={{
@@ -139,6 +144,7 @@ const Carousel = React.forwardRef<
           selectedIndex,
           scrollSnaps,
         }}
+        
       >
         <div
           ref={ref}
@@ -146,6 +152,7 @@ const Carousel = React.forwardRef<
           className={cn("relative", className)}
           role="region"
           aria-roledescription="carousel"
+          
           {...props}
         >
           {children}

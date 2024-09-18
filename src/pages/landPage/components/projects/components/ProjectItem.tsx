@@ -2,6 +2,7 @@ import { Button } from "@/components/ui";
 import IProject from "../types/IProject"
 import { Box, Tag, Text } from "@/components";
 import { NavLink } from "react-router-dom";
+import { useInView } from "@/hooks";
 
 type ProjectItemPropsType = {
     project: IProject,
@@ -11,10 +12,11 @@ const ProjectItem = (props: ProjectItemPropsType) => {
     const {
         project,
     } = props;
+    const {inView, ref} = useInView();
 
 
     return (
-        <Box variant='row' className="w-full h-full justify-center sm:flex-row flex-col">
+        <Box ref={ref} variant='row' className="w-full h-full justify-center sm:flex-row flex-col">
             <Box variant='center' className="
                 3xs:w-[80%] my-12
                 sm:w-[600px]
@@ -23,6 +25,7 @@ const ProjectItem = (props: ProjectItemPropsType) => {
                 rounded-3xl
                 mx-8
                 mb-0
+                animate-projectImageAnimation
             "
             >
                 <img src={`${project.images[0]}/700`} alt="" className="w-full h-full object-cover rounded-3xl" />
@@ -34,7 +37,7 @@ const ProjectItem = (props: ProjectItemPropsType) => {
                 sm:w-[50%]
                 overflow-hidden
             ">
-                <Text variant='h2' className="font-pbold ">{project.name}</Text>
+                <Text variant='h2' className={`font-pbold overflow-hidden ${inView && 'animate-typewriter'}`}>{project.name}</Text>
                 <Text variant='p' className="line-clamp-3 md:line-clamp-5 overflow-hidden tracking-wider text-lg">
                     {project.description}
                 </Text>

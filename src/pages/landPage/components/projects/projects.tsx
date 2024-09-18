@@ -8,10 +8,19 @@ import projects from "./constants/projects";
 import ProjectItem from "./components/ProjectItem";
 import { Images } from "@/assets";
 import { Carousel, CarouselContent, CarouselItem, CarouselPagination } from "@/components/ui";
+import { useInView } from "@/hooks";
 
 const Projects = () => {
+    const {inView, ref} = useInView();
+
     return (
-        <Box className="w-full h-screen relative">
+        <Box ref={ref} className={`
+        w-full 
+        h-screen 
+        relative 
+        my-[32px]
+        ${inView && 'animate-fadeIn'}
+        `}>
             <Box
                 variant='center'
                 className="
@@ -52,12 +61,10 @@ const Projects = () => {
                         opts={{
                             loop: true,
                             dragFree: false,
-                            
                         }}
                         plugins={[
                             Autoplay({
-                                delay: 6000,
-
+                                delay: 6000,                                
                             }),
                             
                         ]}
