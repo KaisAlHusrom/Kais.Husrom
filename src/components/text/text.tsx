@@ -10,7 +10,7 @@ const textVariants = cva("", {
             h3: "scroll-m-20 text-3xl font-pregular tracking-wider",
             h4: "scroll-m-20 text-2xl font-pregular tracking-wider",
             h5: "scroll-m-20 text-xl font-pregular tracking-wider",
-            title: "scroll-m-20 text-5xl font-pbold tracking-widest lg:text-6xl",
+            title: "scroll-m-20  font-pbold tracking-widest text-3xl sm:text-5xl lg:text-6xl",
             p: "leading-7",
             blockquote: "mt-6 border-l-2 pl-6 italic",
             inlineCode: "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-psemibold",
