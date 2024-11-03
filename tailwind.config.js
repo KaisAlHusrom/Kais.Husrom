@@ -69,7 +69,23 @@ module.exports = {
           muted: "hsl(var(--muted-hover))",
           accent: "hsl(var(--accent-hover))",
           destructive: "hsl(var(--destructive-hover))"
-        }
+        },
+        success: {
+          DEFAULT: "hsl(120, 100%, 25%)", // Example color for success
+          foreground: "hsl(120, 100%, 95%)", // Light text on success
+        },
+        danger: {
+          DEFAULT: "hsl(0, 100%, 50%)", // Example color for danger
+          foreground: "hsl(0, 100%, 95%)", // Light text on danger
+        },
+        alert: {
+          DEFAULT: "hsl(39, 100%, 50%)", // Example color for alert
+          foreground: "hsl(39, 100%, 95%)", // Light text on alert
+        },
+        info: {
+          DEFAULT: "hsl(210, 100%, 40%)", // Example color for info
+          foreground: "hsl(210, 100%, 95%)", // Light text on info
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

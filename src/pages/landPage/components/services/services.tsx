@@ -1,33 +1,39 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Box, SectionTitle } from "@/components";
-import { friction, minVelocity, sensitivityFactor, services } from './constants';
-import Service from "./components/service";
+import { Box, SectionTitle } from '@/components';
+import {
+    friction,
+    minVelocity,
+    sensitivityFactor,
+    services,
+} from './constants';
+import Service from './components/service';
 import IService from './types/Iservice';
 import { useInView, useMediaQuery } from '@/hooks';
 import SmallScreenServices from './components/smallScreenServices';
 import ServiceContent from './components/serviceContent';
 import { Images } from '@/assets';
 
-
-
-
-
 const Services = () => {
-    const {ref, inView} = useInView();
+    const { ref, inView } = useInView();
     const [isViewd, setIsViewd] = useState(inView);
     useEffect(() => {
-        if(inView) return
+        if (inView) return;
 
         setIsViewd(true);
-    }, [inView])
+    }, [inView]);
 
-    const [selectedService, setSelectedService] = useState<IService>(services[0]);
+    const [selectedService, setSelectedService] = useState<IService>(
+        services[0],
+    );
 
     const circleRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);
     const [angle, setAngle] = useState<number>(0);
     const [velocity, setVelocity] = useState<number>(0.004);
-    const [lastMousePos, setLastMousePos] = useState<{ x: number; y: number } | null>(null);
+    const [lastMousePos, setLastMousePos] = useState<{
+        x: number;
+        y: number;
+    } | null>(null);
     const [lastUpdateTime, setLastUpdateTime] = useState<number>(0);
 
     const handleMouseDown = (e: React.MouseEvent) => {
@@ -47,11 +53,17 @@ const Services = () => {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        const lastAngle = Math.atan2(lastMousePos.y - centerY, lastMousePos.x - centerX);
-        const currentAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
-        
+        const lastAngle = Math.atan2(
+            lastMousePos.y - centerY,
+            lastMousePos.x - centerX,
+        );
+        const currentAngle = Math.atan2(
+            e.clientY - centerY,
+            e.clientX - centerX,
+        );
+
         let deltaAngle = currentAngle - lastAngle;
-        
+
         // Normalize deltaAngle to be between -π and π
         if (deltaAngle > Math.PI) deltaAngle -= 2 * Math.PI;
         if (deltaAngle < -Math.PI) deltaAngle += 2 * Math.PI;
@@ -85,17 +97,17 @@ const Services = () => {
         };
 
         if (isDragging) {
-            window.addEventListener("mousemove", handleMouseMove);
-            window.addEventListener("mouseup", handleMouseUp);
+            window.addEventListener('mousemove', handleMouseMove);
+            window.addEventListener('mouseup', handleMouseUp);
         } else {
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mouseup", handleMouseUp);
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
             updateMomentum();
         }
 
         return () => {
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mouseup", handleMouseUp);
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
             cancelAnimationFrame(animationFrameId);
         };
     }, [isDragging]);
@@ -108,43 +120,54 @@ const Services = () => {
         }, 3000);
 
         return () => clearInterval(intervalId);
-    },[selectedService.id]);
+    }, [selectedService.id]);
 
     const isMd = useMediaQuery('md');
 
-
     return (
-        <Box 
-        className="
+        <Box
+            id='services'
+            className='
         bg-no-repeat 
         bg-cover
         bg-center
         md:bg-transparent 
         overflow-hidden
-        "
-        style={isMd ? {
-        backgroundImage: `url(${Images.services_background})`,
-        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 5%, black 90%, transparent 100%)',
-        maskImage: 'linear-gradient(to bottom, transparent 0%, black 5%, black 90%, transparent 100%)',
-        } : {}}
+        w-full
+        '
+            style={
+                isMd
+                    ? {
+                          backgroundImage: `url(${Images.services_background})`,
+                          WebkitMaskImage:
+                              'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+                          maskImage:
+                              'linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)',
+                      }
+                    : {}
+            }
         >
-            <Box variant='container' className="my-8">
-                <Box variant='column' className={`p-2 ${inView && `animate-fadeIn`}`} ref={ref}>
+            <Box variant='container' className='my-8'>
+                <Box
+                    variant='column'
+                    className={`p-2 ${inView && `animate-fadeIn`}`}
+                    ref={ref}
+                >
                     <SectionTitle>Services</SectionTitle>
-                    {
-                        !isMd
-                        ?
+                    {!isMd ? (
                         <SmallScreenServices />
-                        :
-                        <Box variant='center' className={`
+                    ) : (
+                        <Box
+                            variant='center'
+                            className={`
                         w-full 
                         p-4 
                         relative 
                         mt-20 
-                        ${isViewd && 'animate-accorion-right'}`
-                        }>
-                            <Box 
-                                variant='center' 
+                        ${isViewd && 'animate-accorion-right'}`}
+                        >
+                            <Box
+                                variant='center'
                                 ref={circleRef}
                                 onMouseDown={handleMouseDown}
                                 className={`
@@ -167,24 +190,24 @@ const Services = () => {
                                 `}
                                 style={{
                                     transform: `rotate(${angle}rad)`,
-                                    transition: isDragging ? "none" : "transform 0.1s",
+                                    transition: isDragging
+                                        ? 'none'
+                                        : 'transform 0.1s',
                                 }}
                             >
                                 {services.map((service, index) => {
-                                    
                                     return (
-                                        <Service 
+                                        <Service
                                             service={service}
                                             key={index}
                                             angle={angle}
                                             index={index}
                                             selectedServiceState={{
                                                 selectedService,
-                                                setSelectedService
+                                                setSelectedService,
                                             }}
                                         />
-                                    )
-                                    
+                                    );
                                 })}
                                 <ServiceContent
                                     selectedService={selectedService}
@@ -192,15 +215,11 @@ const Services = () => {
                                 />
                             </Box>
                         </Box>
-                    }
-                    
+                    )}
                 </Box>
             </Box>
         </Box>
-        
     );
 };
 
 export default Services;
-
-

@@ -15,8 +15,8 @@
     --primary-light: 339 99% 51% /* #d00149 */;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 85.1%;
-    --secondary-dark: 210 40% 75%;
-    --secondary-light: 210 40% 90.1%;
+    --secondary-dark: 210 40% 90.1%;
+    --secondary-light: 210 40% 75%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -34,18 +34,39 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-     /* Action colors */
-     --primary-hover: 222.2 47.4% 16%; /* Darker shade for hover */
-     --secondary-hover: 210 40% 90%; /* Darker shade for hover */
-     --muted-hover: 210 40% 90%; /* Darker shade for hover */
-     --accent-hover: 210 40% 90%; /* Darker shade for hover */
-     --destructive-hover: 0 84.2% 55%; /* Darker shade for hover */
+    /* Action colors */
+    --primary-hover: 222.2 47.4% 16%; /* Darker shade for hover */
+    --secondary-hover: 210 40% 90%; /* Darker shade for hover */
+    --muted-hover: 210 40% 90%; /* Darker shade for hover */
+    --accent-hover: 210 40% 90%; /* Darker shade for hover */
+    --destructive-hover: 0 84.2% 55%; /* Darker shade for hover */
+
+    /* Main colors */
+  --success: 120 60% 50%; /* Success color (green) */
+  --success-foreground: 210 40% 98%;
+  --success-dark: 120 60% 40%; /* Darker success */
+  --success-light: 120 60% 60%; /* Lighter success */
+
+  --danger: 0 84.2% 60.2%; /* Danger color (red) */
+  --danger-foreground: 210 40% 98%;
+  --danger-dark: 0 84.2% 50%; /* Darker danger */
+  --danger-light: 0 84.2% 70%; /* Lighter danger */
+
+  --warning: 45 100% 50%; /* Warning color (yellow) */
+  --warning-foreground: 222.2 47.4% 11.2%;
+  --warning-dark: 45 100% 40%; /* Darker warning */
+  --warning-light: 45 100% 60%; /* Lighter warning */
+
+  --info: 210 60% 50%; /* Info color (blue) */
+  --info-foreground: 222.2 47.4% 11.2%;
+  --info-dark: 210 60% 40%; /* Darker info */
+  --info-light: 210 60% 60%; /* Lighter info */
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 360 0% 10%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
@@ -54,8 +75,8 @@
     --primary-light: 339 99% 51%;
     --primary-foreground: 0 0% 100%;
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-dark: 217.2 32.6% 28.5%;
-    --secondary-light: 217.2 32.6% 14.1%;
+    --secondary-dark: 217.2 32.6% 14.1%;
+    --secondary-light: 217.2 32.6% 28.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -78,6 +99,27 @@
     --muted-hover: 217.2 32.6% 25%; /* Lighter shade for hover */
     --accent-hover: 217.2 32.6% 25%; /* Lighter shade for hover */
     --destructive-hover: 0 62.8% 40%; /* Lighter shade for hover */
+
+    /* Main colors */
+    --success: 120 60% 50%; /* Success color (green) */
+    --success-foreground: 210 40% 98%;
+    --success-dark: 120 60% 40%; /* Darker success */
+    --success-light: 120 60% 60%; /* Lighter success */
+
+    --danger: 0 84.2% 60.2%; /* Danger color (red) */
+    --danger-foreground: 210 40% 98%;
+    --danger-dark: 0 84.2% 50%; /* Darker danger */
+    --danger-light: 0 84.2% 70%; /* Lighter danger */
+
+    --warning: 45 100% 50%; /* Warning color (yellow) */
+    --warning-foreground: 222.2 47.4% 11.2%;
+    --warning-dark: 45 100% 40%; /* Darker warning */
+    --warning-light: 45 100% 60%; /* Lighter warning */
+
+    --info: 210 60% 50%; /* Info color (blue) */
+    --info-foreground: 222.2 47.4% 11.2%;
+    --info-dark: 210 60% 40%; /* Darker info */
+    --info-light: 210 60% 60%; /* Lighter info */
   }
 }
 
@@ -145,11 +187,46 @@
 }
 
 
+/* Custom Scrollbar Styles */
+
+::-webkit-scrollbar {
+  width: 4px; 
+  height: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background)); 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary)); 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--primary-dark));
+}
+
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) hsl(var(--background)); 
+}
+
+
+.scrollable-element {
+  overflow-y: scroll;
+}
+
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
   }
 }
