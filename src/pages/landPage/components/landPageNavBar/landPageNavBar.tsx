@@ -1,5 +1,4 @@
 import { Text, Box, ModeToggle, Logo } from '@/components';
-import LangToggle from '@/components/langToggle/langToggle';
 import { Button } from '@/components/ui';
 import { SmallScreenNavBar } from './components';
 import { navItems } from '@/constants';

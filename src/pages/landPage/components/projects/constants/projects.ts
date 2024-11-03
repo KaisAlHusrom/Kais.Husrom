@@ -3,7 +3,6 @@ import cliserImages from "@/assets/images/Cliser";
 import EduMeeting from "@/assets/images/EduMeeting";
 import itsnoloji from "@/assets/images/itsnoloji";
 import stylexpo from "@/assets/images/stylexpo";
-import { describe } from "node:test";
 
 const projects = [
     {

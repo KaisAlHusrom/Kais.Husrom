@@ -1,7 +1,6 @@
 import { Box, Text } from '@/components';
 
 import { Images } from '@/assets';
-import { Button } from '@/components/ui';
 import SocialMedia from '@/components/socialMedia/socialMedia';
 import DownloadCV from '@/components/downloadCV/downloadCV';
 

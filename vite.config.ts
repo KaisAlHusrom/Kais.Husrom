@@ -17,5 +17,6 @@ export default defineConfig({
   preview: {
     host: true,
     port: 80,
-  }
+  },
+  base: 'Kais.Husrom',
 })

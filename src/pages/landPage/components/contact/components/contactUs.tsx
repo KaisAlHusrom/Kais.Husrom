@@ -34,7 +34,17 @@ const ContactUs = () => {
         },
     });
 
-    const onSubmit = async (data: ContactFormValues): Promise<void> => {
+    // const onSubmit = async (data: ContactFormValues): Promise<void> => {
+    //     setStatus({ type: '', message: '' });
+
+    //     setStatus({
+    //         type: 'success',
+    //         message: 'Message sent successfully!',
+    //     });
+    //     reset();
+    //     console.log(status);
+    // };
+    const onSubmit = async (): Promise<void> => {
         setStatus({ type: '', message: '' });
 
         setStatus({

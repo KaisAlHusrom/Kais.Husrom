@@ -8,7 +8,8 @@ import {
 //pages
 import { ErrorPage, LandPage, LandPageRoot, NotFoundPage, Root } from '@/pages';
 
-const REPO_NAME = 'Kais.Husrom';
+import config from '../../../config.json';
+const REPO_NAME = config.DEPO_NAME;
 
 //Router
 const router = createBrowserRouter(
