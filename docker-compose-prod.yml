@@ -1,8 +1,0 @@
-version: '3.8'
-services:
-  kais_al_husrom_web_page:
-    build: 
-      context: .
-      target: production
-    ports:
-      - "80:80"
