@@ -14,20 +14,15 @@ const REPO_NAME = config.DEPO_NAME;
 //Router
 const router = createBrowserRouter(
     createRoutesFromElements(
-        //All App Routes
         <Route path='/' element={<Root />} errorElement={<ErrorPage />}>
             <Route path='' element={<LandPageRoot />}>
                 <Route path='' element={<LandPage />} />
             </Route>
-
             <Route path='*' element={<NotFoundPage />} />
         </Route>,
     ),
     {
-        basename:
-            process.env.NODE_ENV === 'production'
-                ? `/${REPO_NAME}` // In production, use the repository name
-                : '/', // In development, use root path
+        basename: process.env.NODE_ENV === 'production' ? `/${REPO_NAME}` : '/',
     },
 );
 
